@@ -1,7 +1,15 @@
-﻿namespace Packing.Model;
+﻿namespace Packing.Model.Services;
 
 public class Factory : IFactory
 {
+    public ICalculatorTools NewCalculatorTools(IFactory factory,
+                                               IPalletOperations palletOperations,
+                                               IValidators validators) =>
+        new CalculatorTools(factory, palletOperations, validators);
+
+    public IContext NewContext(ILabelPack labelPack, ILoteParameters loteParameters) =>
+        new Context(labelPack, loteParameters);
+
     public ILabel NewLabel(int number) =>
         new Label(number);
 

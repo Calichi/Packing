@@ -1,4 +1,4 @@
-﻿namespace Packing.Model;
+﻿namespace Packing.Model.Services;
 
 internal class PalletLevelsRange(ILoteParameters loteParameters) : IRange
 {

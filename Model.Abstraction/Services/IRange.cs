@@ -1,4 +1,4 @@
-﻿namespace Packing.Model.Abstraction;
+﻿namespace Packing.Model.Abstraction.Services;
 
 public interface IRange
 {

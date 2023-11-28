@@ -1,7 +1,6 @@
 ﻿namespace Packing.Model.Services;
 
-public class RangeValidator : IRangeValidator<ILabel, ILabelPack>,
-                              IRangeValidator<IPalletProperties, ILoteParameters>
+public class RangeValidator : IValidators
 {
     public bool IsValid(ILabel value, ILabelPack context) =>
         IsInside(value.Number, new LabelRange(context));

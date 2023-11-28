@@ -1,4 +1,4 @@
-﻿namespace Packing.Model;
+﻿namespace Packing.Model.Services;
 
 internal class LevelBoxesRange(ILoteParameters loteParameters) : IRange
 {

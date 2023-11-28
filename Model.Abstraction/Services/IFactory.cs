@@ -7,4 +7,8 @@ public interface IFactory
     ILabelPack NewLabelPack(int minor, int major);
     IPallet NewPallet(int number, int levels, int boxes);
     ILoteParameters NewLoteParameters(int palletsByLote, int levelsByPallet, int boxesByLevel);
+    IContext NewContext(ILabelPack labelPack, ILoteParameters loteParameters);
+    ICalculatorTools NewCalculatorTools(IFactory factory,
+                                        IPalletOperations palletOperations,
+                                        IValidators validators);
 }
