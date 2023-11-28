@@ -19,7 +19,7 @@ public class Calculator(IContext context, ICalculatorTools tools) : ICalculator
     public IPalletProperties ToPalletProperties(ILabel label) {
         int boxes = GetBoxesProduced(label);
         int levels = Math.DivRem(boxes, context.LoteParameters.BoxesByLevel, out boxes);
-        var palletProperties = new PalletProperties(boxes, levels);
+        var palletProperties = new PalletProperties(levels, boxes);
         return Validate(palletProperties);
     }
 
