@@ -1,6 +1,6 @@
 ﻿namespace Packing.Model;
 
-public class LabelRange(ILabelPack labelPack) : IRange
+internal class LabelRange(ILabelPack labelPack) : IRange
 {
     public int Min { get; } = labelPack.Minor;
 

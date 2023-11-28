@@ -1,6 +1,6 @@
 ﻿namespace Packing.Model;
 
-public class LevelBoxesRange(ILoteParameters loteParameters) : IRange
+internal class LevelBoxesRange(ILoteParameters loteParameters) : IRange
 {
     public int Min { get; } = 0;
 

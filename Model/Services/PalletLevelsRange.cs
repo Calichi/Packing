@@ -1,6 +1,6 @@
 ﻿namespace Packing.Model;
 
-public class PalletLevelsRange(ILoteParameters loteParameters) : IRange
+internal class PalletLevelsRange(ILoteParameters loteParameters) : IRange
 {
     public int Min { get; } = 0;
 
