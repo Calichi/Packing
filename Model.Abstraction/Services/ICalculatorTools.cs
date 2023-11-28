@@ -2,7 +2,6 @@
 
 public interface ICalculatorTools
 {
-    IFactory Factory { get; }
+    IModelFactory Factory { get; }
     IPalletOperations PalletOperation { get; }
-    IValidators Validator { get; }
 }

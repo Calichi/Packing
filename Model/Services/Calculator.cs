@@ -2,36 +2,29 @@
 
 public class Calculator(IContext context, ICalculatorTools tools) : ICalculator
 {
+    public IContext Context { get; } = context;
     public ICalculatorTools Tool { get; } = tools;
+
     public IPalletProperties GetPalletProperties(ILabelPack labelPack) {
-        var label = new Label(labelPack.Major);
-        var palletProperties = ToPalletProperties(label);
-        return Validate(palletProperties);
+        var label = Tool.Factory.NewLabel(labelPack.Major);
+        return ToPalletProperties(label);
     }
 
     public ILabel ToLabel(IPalletProperties palletProperties) {
-        var labelMinor = context.LabelPack.Minor;
+        var labelMinor = Context.LabelPack.Minor;
         var boxesPending = GetBoxesPending(palletProperties);
-        var label = new Label(boxesPending + labelMinor);
-        return Validate(label);
+        return Tool.Factory.NewLabel(boxesPending + labelMinor);
     }
 
     public IPalletProperties ToPalletProperties(ILabel label) {
         int boxes = GetBoxesProduced(label);
-        int levels = Math.DivRem(boxes, context.LoteParameters.BoxesByLevel, out boxes);
-        var palletProperties = new PalletProperties(levels, boxes);
-        return Validate(palletProperties);
+        int levels = Math.DivRem(boxes, Context.LoteParameters.BoxesByLevel, out boxes);
+        return Tool.Factory.NewPalletProperties(levels, boxes);
     }
 
     int GetBoxesPending(IPalletProperties palletProperties) =>
-        Tool.PalletOperation.GetBoxesPending(palletProperties, context.LoteParameters);
+        Tool.PalletOperation.GetBoxesPending(palletProperties, Context.LoteParameters);
 
     int GetBoxesProduced(ILabel label) =>
-        Tool.PalletOperation.GetBoxesProduced(label, context.LabelPack);
-    
-    ILabel Validate(ILabel label) =>
-        Tool.Validator.Validate(label, context.LabelPack);
-
-    IPalletProperties Validate(IPalletProperties palletProperties) =>
-        Tool.Validator.Validate(palletProperties, context.LoteParameters);
+        Tool.PalletOperation.GetBoxesProduced(label, Context.LabelPack);
 }
