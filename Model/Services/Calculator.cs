@@ -12,7 +12,7 @@ public class Calculator(IContext context, ICalculatorTools tools) : ICalculator
     public ILabel ToLabel(IPalletProperties palletProperties) {
         var labelMinor = context.LabelPack.Minor;
         var boxesPending = GetBoxesPending(palletProperties);
-        var label = new Label(boxesPending - labelMinor);
+        var label = new Label(boxesPending + labelMinor);
         return Validate(label);
     }
 
