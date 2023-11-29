@@ -1,25 +1,15 @@
-add-type -path "ug.cs",
-               "Model.Abstraction\*.cs",
-               "Model.Abstraction\Services\*.cs",
-               "Model\*.cs",
+add-type -path "Model\*.cs",
+               "Model\Contexts\*.cs",
+               "Model\Units\Validation\*.cs",
+               "Model\Units\*.cs",
                "Model\Services\*.cs"
 
-$service = [Packing.Model.Services.ServiceDataFactory]::new();
-$lpack = $service.NewLabelPack(2, 61);
-$lparams = $service.NewLoteParameters(15, 10, 6);
-$ctxt = $service.NewContext($lpack, $lparams);
-$v = [Packing.Model.Services.RangeValidator]::new();
+$contextFactory = [Packing.Model.Context.Factory]::new();
+$lpack = $contextFactory.NewLabelPack(2,61);
+$lparams = $contextFactory.NewLoteParameters(15, 10, 6);
+$context = $contextFactory.NewBundle($lpack, $lparams);
+$palletOperation = [Packing.Model.Service.PalletOperation]::new();
+$unitValidator = [Packing.Model.Unit.Validation.Validator]::new($palletOperation);
+$unitFactory = [Packing.Model.Unit.Factory]::new($context, $unitValidator);
 
-$model = [Packing.Model.Services.ModelFactory]::new($ctxt, $v);
-$pop = [Packing.Model.Services.PalletOperations]::new();
-$tools = $service.NewCalculatorTools($model, $pop);
-
-$c = [Packing.Model.Services.Calculator]::new($ctxt, $tools);
-new-variable -name s -value $service -scope global;
-new-variable -name calc -value $c -scope global;
-new-variable -name l61 -value $c.Tool.Factory.NewLabel(61) -scope global;
-new-variable -name p01 -value $c.ToPalletProperties($l61) -scope global;
-new-variable -name l02 -value $c.Tool.Factory.NewLabel(2) -scope global;
-new-variable -name p10 -value $c.ToPalletProperties($l02) -scope global;
-new-variable -name lp -value $service.NewLabelPack(2,32) -scope global;
-new-variable -name p -value $c.GetPalletProperties($lp) -scope global;
+new-variable -name unitFactory -value $unitFactory -scope global;
