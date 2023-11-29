@@ -1,4 +1,4 @@
-﻿namespace Packing.Model.Unit;
+﻿namespace Packing.Unit;
 
 public class Factory(Context.IBundle context, Validation.IValidator validator) : IFactory
 {

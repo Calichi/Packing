@@ -1,8 +1,8 @@
-﻿namespace Packing.Model.Unit.Validation;
+﻿namespace Packing.Unit.Validation;
 
-public class Validator(Service.IPalletOperation palletOperation) : IValidator
+public class Validator(IPalletOperation palletOperation) : IValidator
 {
-    public Service.IPalletOperation PalletOperation { get; } = palletOperation;
+    public IPalletOperation PalletOperation { get; } = palletOperation;
 
     public bool IsValid(ILabel unit, Context.ILabelPack context) =>
         IsInside(unit.Number, new LabelRange(context));

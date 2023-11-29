@@ -1,4 +1,4 @@
-﻿namespace Packing.Model.Unit;
+﻿namespace Packing.Unit;
 
 public interface IPalletProperties
 {

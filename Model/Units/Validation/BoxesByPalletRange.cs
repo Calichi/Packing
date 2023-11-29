@@ -1,4 +1,4 @@
-﻿namespace Packing.Model.Unit.Validation;
+﻿namespace Packing.Unit.Validation;
 
 readonly struct BoxesByPalletRange(Context.ILoteParameters context) : IRange
 {
