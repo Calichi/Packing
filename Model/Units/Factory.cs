@@ -1,6 +1,6 @@
 ﻿namespace Packing.Model.Unit;
 
-public class Factory(Context.IBundle context, Validation.IValidator validator)
+public class Factory(Context.IBundle context, Validation.IValidator validator) : IFactory
 {
     public Context.IBundle Context { get; } = context;
 
