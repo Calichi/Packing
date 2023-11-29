@@ -1,4 +1,4 @@
-﻿namespace Packing.Model.Abstraction.Services;
+﻿namespace Packing.Model.Units.Validation;
 
 public interface IRange
 {
