@@ -1,4 +1,4 @@
-﻿namespace Packing.Model.Context;
+﻿namespace Packing.Unit.Context;
 
 public interface ILoteParameters
 {
