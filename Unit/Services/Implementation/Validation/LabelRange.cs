@@ -1,4 +1,4 @@
-﻿namespace Packing.Unit.Validation;
+﻿namespace Packing.Unit.Service.Validation;
 
 readonly struct LabelRange(Context.ILabelPack context) : IRange
 {

@@ -1,10 +1,10 @@
-﻿namespace Packing.Unit;
+﻿namespace Packing.Unit.Service;
 
-public class Factory(Context.IBundle context, Validation.IValidator validator) : IFactory
+public class Factory(Context.IBundle context, IValidator validator) : IFactory
 {
     public Context.IBundle Context { get; } = context;
 
-    public Validation.IValidator Validator { get; } = validator;
+    public IValidator Validator { get; } = validator;
 
     public ILabel NewLabel(int number) =>
         Validator.Validate(new Label(number), Context.LabelPack);

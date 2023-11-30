@@ -1,4 +1,4 @@
-﻿namespace Packing.Unit.Validation;
+﻿namespace Packing.Unit.Service;
 
 public interface IValidator<U,C>
 {

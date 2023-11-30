@@ -1,4 +1,4 @@
-﻿namespace Packing.Unit;
+﻿namespace Packing.Unit.Service;
 
 public interface IFactory
 {

@@ -1,4 +1,4 @@
-﻿namespace Packing.Unit.Validation;
+﻿namespace Packing.Unit.Service.Validation;
 
 interface IRange
 {
