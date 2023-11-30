@@ -1,4 +1,4 @@
-﻿namespace Packing.Unit.Service;
+﻿namespace Packing.Factory.UnitValidation;
 
 public interface IValidator<U,C>
 {
@@ -14,5 +14,5 @@ public interface IValidator<U,C>
 }
 
 public interface IValidator :
-    IValidator<ILabel,Context.ILabelPack>,
-    IValidator<IPalletProperties,Context.ILoteParameters>;
+    IValidator<Unit.ILabel,Context.ILabelPack>,
+    IValidator<Unit.IPalletProperties,Context.ILoteParameters>;

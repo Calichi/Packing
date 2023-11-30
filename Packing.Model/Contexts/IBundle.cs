@@ -1,4 +1,4 @@
-﻿namespace Packing.Unit.Context;
+﻿namespace Packing.Context;
 
 public interface IBundle
 {

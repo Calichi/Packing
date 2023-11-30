@@ -1,4 +1,4 @@
-﻿namespace Packing.Unit.Service;
+﻿namespace Packing.Service;
 
 public interface IPalletOperation<U,C>
 {
@@ -7,5 +7,5 @@ public interface IPalletOperation<U,C>
 }
 
 public interface IPalletOperation :
-    IPalletOperation<ILabel, Context.ILabelPack>,
-    IPalletOperation<IPalletProperties, Context.ILoteParameters>;
+    IPalletOperation<Unit.ILabel, Context.ILabelPack>,
+    IPalletOperation<Unit.IPalletProperties, Context.ILoteParameters>;
