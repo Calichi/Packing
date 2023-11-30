@@ -6,8 +6,8 @@ public class Contexts
         new LabelPack(minor, major);
     
     public Context.ILoteParameters NewLoteParameters(int palletsByLote,
-                                             int levelsByPallet,
-                                             int boxesByLevel) =>
+                                                     int levelsByPallet,
+                                                     int boxesByLevel) =>
         new LoteParameters(palletsByLote, levelsByPallet, boxesByLevel);
 
     public Context.IBundle NewBundle(Context.ILabelPack labelPack, Context.ILoteParameters loteParameters) =>
