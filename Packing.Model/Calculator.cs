@@ -1,8 +1,8 @@
 ﻿namespace Packing;
 
-public class Calculator(Context.IBundle context,
+public class Calculator(/*Context.IBundle context,
                         Service.IPalletOperation palletOp,
-                        Factory.IUnits unitFactory,
+                        Factory.IUnits unitFactory,*/
                         Factory.IContexts contextFactory,
                         Service.IConverter converter)
 {
