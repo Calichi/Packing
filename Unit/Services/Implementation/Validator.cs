@@ -1,6 +1,6 @@
 ﻿namespace Packing.Unit.Service;
 
-public class Validator(IPalletOperation palletOperation) : IValidator
+class Validator(IPalletOperation palletOperation) : IValidator
 {
     public IPalletOperation PalletOperation { get; } = palletOperation;
 

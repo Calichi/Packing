@@ -1,11 +1,11 @@
 ﻿namespace Packing.Unit.Service;
 
-public class Converter(Context.IBundle context,
-                       IFactory factory,
-                       IPalletOperation palletOperation) : IConverter
+class Converter(Context.IBundle context,
+                IPalletOperation palletOperation,
+                IUnitFactory factory) : IConverter
 {
     public Context.IBundle Context { get; } = context;
-    public IFactory Factory { get; } = factory;
+    public IUnitFactory Factory { get; } = factory;
     public IPalletOperation PalletOperation { get; } = palletOperation;
 
     public ILabel ToLabel(IPalletProperties source) {

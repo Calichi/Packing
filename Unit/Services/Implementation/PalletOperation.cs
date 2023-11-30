@@ -1,6 +1,6 @@
 ﻿namespace Packing.Unit.Service;
 
-public class PalletOperation : IPalletOperation
+class PalletOperation : IPalletOperation
 {
     public int GetPendingBoxes(IPalletProperties unit, Context.ILoteParameters context) =>
         context.BoxesByPallet - GetProducedBoxes(unit, context);
