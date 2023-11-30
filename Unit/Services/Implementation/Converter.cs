@@ -16,6 +16,6 @@ class Converter(Context.IBundle context,
     public IPalletProperties ToPalletProperties(ILabel source) {
         int boxes = PalletOperation.GetProducedBoxes(source, Context.LabelPack);
         int levels = Math.DivRem(boxes, Context.LoteParameters.BoxesByLevel, out boxes);
-        return Factory.NewPalletProperties(boxes, levels);
+        return Factory.NewPalletProperties(levels, boxes);
     }
 }
