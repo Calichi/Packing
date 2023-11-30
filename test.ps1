@@ -1,24 +1,27 @@
-add-type -path "Unit\*.cs",
-               "Unit\Contexts\*.cs",
-               "Unit\Services\Implementation\Validation\*.cs",
-               "Unit\Services\*.cs",
-               "Unit\Services\Implementation\*.cs"
+add-type -path "Packing.Model\Contexts\*.cs",
+               "Packing.Model\Units\*cs",
+               "Packing.Model\Factories\UnitValidation",
+               "Packing.Model\Factories\*.cs",
+               "Packing.Model\Services\*.cs",
+               "Packing.Model\*.cs"
 
-$contextFactory = [Packing.Unit.Context.Factory]::new();
+$contextFactory = [Packing.Factory.Contexts]::new();
 $lpack = $contextFactory.NewLabelPack(2,61);
 $lparams = $contextFactory.NewLoteParameters(15, 10, 6);
 $context = $contextFactory.NewBundle($lpack, $lparams);
 
-$serviceFactory = [Packing.Unit.Service.ServiceFactory]::new();
+$serviceFactory = [Packing.Factory.Services]::new();
 $palletOperation = $serviceFactory.NewPalletOperation();
-$unitValidator = $serviceFactory.NewValidator($palletOperation);
+$unitValidator = $serviceFactory.NewUnitValidator($palletOperation);
 $unitFactory = $serviceFactory.NewUnitFactory($context, $unitValidator);
-$converter = $serviceFactory.NewConverter($context, $palletOperation, $unitFactory);
+$converter = $serviceFactory.NewUnitConverter($context, $palletOperation, $unitFactory);
+$packing = [Packing.Calculator]::new($context, $palletOperation, $unitFactory, $contextFactory, $converter);
 
 new-variable -name context -value $context -scope global;
 new-variable -name palletOperation -value $palletOperation -scope global;
 new-variable -name unitFactory -value $unitFactory -scope global;
 new-variable -name converter -value $converter -scope global;
+new-variable -name packing -value $packing -scope global;
 
 new-variable -name lb02 -value $unitFactory.NewLabel(2) -scope global;
 new-variable -name lb61 -value $unitFactory.NewLabel(61) -scope global;
