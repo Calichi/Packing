@@ -1,6 +1,6 @@
 ﻿namespace Packing.Factory;
 
-public class Contexts
+public class Contexts : IContexts
 {
     public Context.ILabelPack NewLabelPack(int minor, int major) =>
         new LabelPack(minor, major);
