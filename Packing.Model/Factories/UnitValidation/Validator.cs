@@ -4,7 +4,7 @@ class Validator(Service.IPalletOperation palletOperation) : IValidator
 {
     public Service.IPalletOperation PalletOperation { get; } = palletOperation;
 
-    public bool IsValid(Unit.ILabel unit, Context.ILabelPack context) =>
+    public bool IsValid(Unit.ILabel unit, Context.IPack context) =>
         IsInside(unit.Number, new LabelRange(context));
 
     public bool IsValid(Unit.IPalletProperties unit, Context.ILoteParameters context) =>

@@ -2,6 +2,6 @@
 
 public interface IBundle
 {
-    ILabelPack LabelPack { get; }
+    IPack LabelPack { get; }
     ILoteParameters LoteParameters { get; }
 }

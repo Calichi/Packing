@@ -6,7 +6,7 @@ public class Calculator(/*Context.IBundle context,
                         Factory.IContexts contextFactory,
                         Service.IConverter converter)
 {
-    public Context.ILabelPack ToLabelPack(Unit.IPalletProperties palletProps) {
+    public Context.IPack ToLabelPack(Unit.IPalletProperties palletProps) {
         var major = converter.ToLabel(palletProps).Number - 1;
         return contextFactory.NewLabelPack(2, major);
     }

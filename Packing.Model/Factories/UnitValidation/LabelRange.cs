@@ -1,6 +1,6 @@
 ﻿namespace Packing.Factory.UnitValidation;
 
-readonly struct LabelRange(Context.ILabelPack context) : IRange
+readonly struct LabelRange(Context.IPack context) : IRange
 {
     public int Min { get; } = context.Minor;
 

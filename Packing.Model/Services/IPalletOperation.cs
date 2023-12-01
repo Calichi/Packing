@@ -7,5 +7,5 @@ public interface IPalletOperation<U,C>
 }
 
 public interface IPalletOperation :
-    IPalletOperation<Unit.ILabel, Context.ILabelPack>,
+    IPalletOperation<Unit.ILabel, Context.IPack>,
     IPalletOperation<Unit.IPalletProperties, Context.ILoteParameters>;

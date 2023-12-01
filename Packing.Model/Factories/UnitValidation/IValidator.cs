@@ -14,5 +14,5 @@ public interface IValidator<U,C>
 }
 
 public interface IValidator :
-    IValidator<Unit.ILabel,Context.ILabelPack>,
+    IValidator<Unit.ILabel,Context.IPack>,
     IValidator<Unit.IPalletProperties,Context.ILoteParameters>;
