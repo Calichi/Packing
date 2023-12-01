@@ -2,8 +2,8 @@
 
 public class Contexts : IContexts
 {
-    public Context.ILabelPack NewLabelPack(int minor, int major) =>
-        new LabelPack(minor, major);
+    public Context.ILabelPack NewLabelPack(int number, int minor, int major) =>
+        new LabelPack(number, minor, major);
     
     public Context.ILoteParameters NewLoteParameters(int palletsByLote,
                                                      int levelsByPallet,
@@ -14,7 +14,7 @@ public class Contexts : IContexts
         new Bundle(labelPack, loteParameters);
 }
 
-readonly record struct LabelPack(int Minor, int Major) : Context.ILabelPack;
+readonly record struct LabelPack(int Number, int Minor, int Major) : Context.ILabelPack;
 readonly record struct LoteParameters(int PalletsByLote,
                                       int LevelsByPallet,
                                       int BoxesByLevel) : Context.ILoteParameters;

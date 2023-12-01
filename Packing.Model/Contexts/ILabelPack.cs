@@ -1,6 +1,6 @@
 ﻿namespace Packing.Context;
 
-public interface ILabelPack
+public interface ILabelPack : Unit.ILabel
 {
     int Minor { get; }
     int Major { get; }
