@@ -1,8 +1,9 @@
 ﻿namespace Packing;
 
-public class Calculator(/*Context.IBundle context,
+//PalletCalculator
+public class Calculator(/*Context.IBundle context,*/
                         Service.IPalletOperation palletOp,
-                        Factory.IUnits unitFactory,*/
+                        /*Factory.IUnits unitFactory,*/
                         Factory.IContexts contextFactory,
                         Service.IConverter converter)
 {
@@ -10,4 +11,10 @@ public class Calculator(/*Context.IBundle context,
         var major = converter.ToLabel(palletProps).Number - 1;
         return contextFactory.NewLabelPack(2, major);
     }
+
+    public int GetPendingBoxes(Unit.ILabel label, Context.IPack pack) =>
+        palletOp.GetPendingBoxes(label, pack);
+
+    public int GetProducedBoxes(Unit.ILabel label, Context.IPack pack) =>
+        palletOp.GetProducedBoxes(label, pack);
 }
