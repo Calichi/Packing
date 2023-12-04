@@ -1,6 +1,6 @@
 ﻿namespace Packing.Pallet;
 
-public static class Validator
+public static class Validation
 {
     public static bool IsValid(this IProperties props, IParameters parameters) =>
         props.Levels > -1 &&
