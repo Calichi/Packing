@@ -1,8 +1,8 @@
-﻿namespace Packing.Pallet;
+﻿namespace Packing.Pallets;
 
 public static class Validation
 {
-    public static bool IsValid(this IProperties props, IParameters parameters) =>
+    public static bool IsValid(this IPallet props, IParameters parameters) =>
         props.Levels > -1 &&
         props.Boxes > -1 &&
         props.Levels <= parameters.LevelsPerPallet &&

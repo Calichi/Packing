@@ -1,4 +1,4 @@
-﻿namespace Packing.Pallet;
+﻿namespace Packing.Pallets;
 
 public interface IParameters
 {

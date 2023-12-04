@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Model", "Packing.Model\Packing.Model.csproj", "{D07E8D3D-BA82-40B8-8BE1-39B53278B1FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Pallet", "Packing.Pallet\Packing.Pallet.csproj", "{89F9EC6F-F9EA-4622-A8E2-995B443009DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Pallets", "Packing.Pallet\Packing.Pallets.csproj", "{89F9EC6F-F9EA-4622-A8E2-995B443009DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Labels", "Packing.Label\Packing.Labels.csproj", "{68663D6E-707F-4F72-B31C-8D77C068CC5E}"
 EndProject
