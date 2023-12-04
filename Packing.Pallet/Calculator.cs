@@ -4,9 +4,9 @@
 
 public static class Calculator
 {
-    public static int GetProducedBoxes(this IParameters parameters, IProperties palletProps) =>
+    public static int GetProducedBoxes(this IProperties palletProps, IParameters parameters) =>
         (palletProps.Levels * parameters.BoxesPerLevel) + palletProps.Boxes;
 
-    public static int GetPendingBoxes(this IParameters parameters, IProperties palletProps) =>
-        parameters.BoxesPerPallet - GetProducedBoxes(parameters, palletProps);
+    public static int GetPendingBoxes(this IProperties palletProps, IParameters parameters) =>
+        parameters.BoxesPerPallet - GetProducedBoxes(palletProps, parameters);
 }
