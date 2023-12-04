@@ -1,4 +1,4 @@
-﻿namespace Packing.Label;
+﻿namespace Packing.Labels;
 
 public interface ILabel
 {
