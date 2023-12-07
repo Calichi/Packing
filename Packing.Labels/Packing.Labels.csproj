@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <PackageId>$(AssemblyName)</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Carlos Hernández Alarcón</Authors>
+    <Company>Chapps</Company>
+  </PropertyGroup>
+
 </Project>
