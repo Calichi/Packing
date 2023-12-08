@@ -1,9 +1,9 @@
-using namespace Packing.Testing;
+using namespace Packing.Models;
 
-Import-Project Packing.Pallets, Packing.Labels, Packing.Convertion, Packing, Packing.Testing;
+Import-Project Packing.Model, Packing.Core, Packing.Models
 
 $palletParams = [PalletParameters]::new(10, 6);
-$labelPack = [Pack]::new(2, 61);
-$convertionParams = [Parameters]::new($palletParams, $labelPack);
-$packer = [Packing.Packer]::new($convertionParams);
+$labelParams = [LabelParameters]::new(2, 61);
+$converterParams = [ConverterParameters]::new($palletParams, $labelParams);
+$packer = [Packing.Core.Packer]::new($converterParams);
 $l32 = [Label]::new(32);

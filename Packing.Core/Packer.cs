@@ -1,7 +1,6 @@
 ﻿using Packing.Model;
-using Packing.Core;
 
-namespace Packing;
+namespace Packing.Core;
 
 public class Packer(IConverterParameters parameters)
 {
