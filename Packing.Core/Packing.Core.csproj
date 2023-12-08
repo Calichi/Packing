@@ -17,4 +17,8 @@
     <Company>Chapps</Company>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Packing.Model" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>
