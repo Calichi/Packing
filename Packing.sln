@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Pallets", "Packing.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Labels", "Packing.Labels\Packing.Labels.csproj", "{68663D6E-707F-4F72-B31C-8D77C068CC5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Models", "Packing.Testing\Packing.Models.csproj", "{3926A77E-53FB-4AEB-A871-67B5AC3F9D08}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Models", "Packing.Models\Packing.Models.csproj", "{3926A77E-53FB-4AEB-A871-67B5AC3F9D08}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Convertion", "Packing.Convertion\Packing.Convertion.csproj", "{8E7258BC-A507-45B4-9E65-0563B9B6E1A4}"
 EndProject
