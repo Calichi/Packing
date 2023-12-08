@@ -38,4 +38,7 @@ public class Packer(IConverterParameters parameters)
 
     public bool IsValid(IPallet pallet) =>
         pallet.IsValid(Parameters.Pallet);
+
+    public IProductionReport GetProductionReport(ILabel label) =>
+        new ProductionReport(GetPalletProducedBoxes(label), GetPalletPendingBoxes(label));
 }
