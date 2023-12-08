@@ -1,24 +1,23 @@
-﻿using Packing.Pallets;
-using Packing.Labels;
-using Packing.Convertion;
+﻿using Packing.Model;
+using Packing.Core;
 
 namespace Packing;
 
-public class Packer(Convertion.IParameters parameters)
+public class Packer(IConverterParameters parameters)
 {
-    public Convertion.IParameters Parameters { get; } = parameters;
+    public IConverterParameters Parameters { get; } = parameters;
 
     public int GetPalletPendingBoxes(ILabel label) =>
-        label.GetPendingBoxes(Parameters.Label);
+        label.GetPalletPendingBoxes(Parameters.Label);
 
     public int GetPalletProducedBoxes(ILabel label) =>
-        label.GetProducedBoxes(Parameters.Label);
+        label.GetPalletProducedBoxes(Parameters.Label);
 
     public int GetPalletPendingBoxes(IPallet pallet) =>
-        pallet.GetPendingBoxes(Parameters.Pallet);
+        pallet.GetPalletPendingBoxes(Parameters.Pallet);
 
     public int GetPalletProducedBoxes(IPallet pallet) =>
-        pallet.GetProducedBoxes(Parameters.Pallet);
+        pallet.GetPalletProducedBoxes(Parameters.Pallet);
 
     public ILabel ToLabel(IPallet pallet) =>
         pallet.ToLabel(Parameters);
@@ -26,13 +25,13 @@ public class Packer(Convertion.IParameters parameters)
     public IPallet ToPallet(ILabel label) =>
         label.ToPallet(Parameters);
 
-    public IPallet ToPallet(IPack pack) =>
+    public IPallet ToPallet(ILabelParameters pack) =>
         ToPallet(pack.GetMajorLabel());
 
-    public IPack ToLabelPack(IPallet pallet) =>
+    public ILabelParameters ToLabelPack(IPallet pallet) =>
         ToLabelPack(ToLabel(pallet));
 
-    public IPack ToLabelPack(ILabel majorLabel) =>
+    public ILabelParameters ToLabelPack(ILabel majorLabel) =>
         majorLabel.ToLabelPack(Parameters.Label);
 
     public bool IsValid(ILabel label) =>
