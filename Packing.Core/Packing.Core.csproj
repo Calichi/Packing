@@ -10,4 +10,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <PackageId>$(AssemblyName)</PackageId>
+    <Description>Nucleo del sistema Packing</Description>
+    <Authors>Carlos Hernández Alarcón</Authors>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageTags>$(AssemblyName)</PackageTags>
+    <Copyright>Copyright © $(Authors) 2023</Copyright>
+    <Product>Packing Core</Product>
+    <Company>Chapps</Company>
+  </PropertyGroup>
+
 </Project>
