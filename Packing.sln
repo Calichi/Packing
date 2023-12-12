@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Models", "Packing.Models\Packing.Models.csproj", "{3926A77E-53FB-4AEB-A871-67B5AC3F9D08}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Model", "Packing.Model\Packing.Model.csproj", "{AEF8E578-7C43-42F4-83E1-EBC5E5D07988}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Core", "Packing.Core\Packing.Core.csproj", "{60712D90-12E6-4B2D-B783-146D060FF628}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3926A77E-53FB-4AEB-A871-67B5AC3F9D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3926A77E-53FB-4AEB-A871-67B5AC3F9D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3926A77E-53FB-4AEB-A871-67B5AC3F9D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3926A77E-53FB-4AEB-A871-67B5AC3F9D08}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AEF8E578-7C43-42F4-83E1-EBC5E5D07988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AEF8E578-7C43-42F4-83E1-EBC5E5D07988}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEF8E578-7C43-42F4-83E1-EBC5E5D07988}.Release|Any CPU.ActiveCfg = Release|Any CPU
