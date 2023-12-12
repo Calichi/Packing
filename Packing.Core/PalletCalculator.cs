@@ -2,7 +2,7 @@
 
 namespace Packing.Core;
 
-public static class ProductionCalculator
+public static class PalletCalculator
 {
     public static int GetPalletProducedBoxes(this IPallet palletProps, IPalletParameters palletParams) =>
         (palletProps.Levels * palletParams.BoxesPerLevel) + palletProps.Boxes;
@@ -16,7 +16,7 @@ public static class ProductionCalculator
     public static int GetPalletProducedBoxes(this ILabel label, ILabelParameters labelParams) =>
         labelParams.LabelsAmount - GetPalletPendingBoxes(label, labelParams);
 
-    public static IProductionReport GetPalletProductionReport(this ILabel label, ILabelParameters labelParams) =>
-        new ProductionReport(label.GetPalletProducedBoxes(labelParams),
+    public static IBoxes GetPalletProductionReport(this ILabel label, ILabelParameters labelParams) =>
+        new Boxes(label.GetPalletProducedBoxes(labelParams),
                              label.GetPalletPendingBoxes(labelParams));
 }
