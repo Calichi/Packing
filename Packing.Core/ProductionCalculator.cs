@@ -14,5 +14,9 @@ public static class ProductionCalculator
         label.Number - labelParams.MinorNumber;
 
     public static int GetPalletProducedBoxes(this ILabel label, ILabelParameters labelParams) =>
-        labelParams.LabelsAmount - GetPalletPendingBoxes(label, labelParams); 
+        labelParams.LabelsAmount - GetPalletPendingBoxes(label, labelParams);
+
+    public static IProductionReport GetPalletProductionReport(this ILabel label, ILabelParameters labelParams) =>
+        new ProductionReport(label.GetPalletProducedBoxes(labelParams),
+                             label.GetPalletPendingBoxes(labelParams));
 }

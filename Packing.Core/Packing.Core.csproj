@@ -1,5 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\Packing.Model\Packing.Model.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -10,15 +14,11 @@
     <PackageId>$(AssemblyName)</PackageId>
     <Description>Nucleo del sistema Packing</Description>
     <Authors>Carlos Hernández Alarcón</Authors>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>$(Version)</PackageVersion>
     <PackageTags>$(AssemblyName)</PackageTags>
     <Copyright>Copyright © $(Authors) 2023</Copyright>
     <Product>Packing Core</Product>
     <Company>Chapps</Company>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Packing.Model" Version="1.0.0" />
-  </ItemGroup>
 
 </Project>
