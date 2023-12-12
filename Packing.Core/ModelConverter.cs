@@ -19,6 +19,6 @@ public static class ModelConverter
         return new Pallet(levels, boxes);
     }
 
-    public static ILabelParameters ToLabelPack(this ILabel majorLabel, ILabelParameters basePack) =>
-        new LabelParameters(basePack.MinorNumber, majorLabel.Number);
+    public static ILabelParameters ToLabelParameters(this ILabel majorLabel, ILabelParameters labelParams) =>
+        new LabelParameters(labelParams.MinorNumber, majorLabel.Number);
 }
