@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Model", "Packing.Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Core", "Packing.Core\Packing.Core.csproj", "{60712D90-12E6-4B2D-B783-146D060FF628}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packing.Tracing", "Packing.Tracing\Packing.Tracing.csproj", "{110C643A-6E51-494C-BFDE-E85441BE9245}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{60712D90-12E6-4B2D-B783-146D060FF628}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60712D90-12E6-4B2D-B783-146D060FF628}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60712D90-12E6-4B2D-B783-146D060FF628}.Release|Any CPU.Build.0 = Release|Any CPU
+		{110C643A-6E51-494C-BFDE-E85441BE9245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{110C643A-6E51-494C-BFDE-E85441BE9245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{110C643A-6E51-494C-BFDE-E85441BE9245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{110C643A-6E51-494C-BFDE-E85441BE9245}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
