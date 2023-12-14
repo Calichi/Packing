@@ -1,18 +1,18 @@
 ﻿namespace Packing.Models;
 
 public readonly record struct
-    Label(int Number) : Tracing.ILabel;
+    Label(int Number) : Model.ILabel;
 
 
 public readonly record struct
     Pallet(int Number,
            int Levels,
-           int Boxes) : Tracing.IPallet;
+           int Boxes) : Tracing.Model.IPallet;
 
 
 public readonly record struct
-    LoteParameters(Model.IPalletParameters Pallet,
-                   Model.ILabelParameters Label) : Tracing.ILoteParameters;
+    LotParameters(Model.IPalletParameters Pallet,
+                  Model.ILabelParameters Label) : Tracing.Model.ILotParameters;
 
 
 public readonly record struct
