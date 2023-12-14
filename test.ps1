@@ -7,7 +7,9 @@ Import-Project Packing.Model,
 
 $palletParams = [PalletParameters]::new(10, 6);
 $labelParams = [LabelParameters]::new(2, 61);
-$loteParams = [LoteParameters]::new($palletParams, $labelParams);
+$loteParams = [LotParameters]::new($palletParams, $labelParams);
 $beginPallet = [Pallet]::new(1, 5, 0);
-$endPallet = [Label]::new(1);
-$packer = [Packing.Tracing.Packer]::new($loteParams, $beginPallet, $endPallet);
+$endPallet = [Label]::new(8);
+$lot = [Packing.Tracing.Lot]::new($loteParams, $beginPallet, $endPallet);
+$lotPC = [Packing.Tracing.LotProductionCompiler]::new();
+$packer = [Packing.Tracing.Packer]::new($lot, $lotPC);
