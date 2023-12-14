@@ -13,8 +13,8 @@ public class LotProductionCompiler
 
     public int Result { get; private set; } = 0;
 
-    bool HasTheTourBeenCompletedYet =>
-        _labelIndex == _packer?.TracingLabels.Count;
+    bool HasNotTheTourConcluded =>
+        _labelIndex < _packer?.TracingLabels.Count;
 
     bool HasThePalletChanged =>
         _currentLabel?.Number > _previousLabel?.Number;
@@ -30,41 +30,15 @@ public class LotProductionCompiler
 
     int CurrentPalletProducedBoxes =>
         _currentLabel.GetPalletProducedBoxes(CurrentLabelPack);
+
+    Packing.Model.ILabel NextLabel =>
+        _packer.TracingLabels[_labelIndex++];
+
+    Packing.Model.ILabel LastTracingLabelOrDefault =>
+        _packer.AreThereNotTracingLabels
+            ? _packer.Lot.BeginLabel 
+            : _packer.TracingLabels.Last();
     
-
-    void Initialize(Packer packer) {
-        _packer = packer;
-        _labelIndex = 0;
-        _labelPackIndex = 0;
-        _previousLabel = _packer.Lot.BeginLabel;
-        Result = 0;
-    }
-    
-    public LotProductionCompiler Compute(Packer packer) {
-        Initialize(packer);
-        ContinuousSum();
-        AddCurrentLabel();
-        return this;
-    }
-
-    void AddCurrentLabel(){
-        if (_packer.CanCurrentLabelBeAdded)
-            Add(_packer.CurrentLabel);
-    }
-
-    void ContinuousSum () {
-        if(!HasTheTourBeenCompletedYet) {
-            Add(PopLabel());
-            ContinuousSum();
-        }
-    }
-
-    void Add (Packing.Model.ILabel label) {
-        _currentLabel = label;
-        Result += GetBoxesProduced();
-        _previousLabel = PopPreviousLabel();
-    }
-
     int GetBoxesProduced () {
         if (HasThePalletChanged) {
             _labelPackIndex++;
@@ -79,12 +53,41 @@ public class LotProductionCompiler
         }
     }
 
-    Packing.Model.ILabel PopLabel() =>
-        _packer.TracingLabels[_labelIndex++];
+    void Add (Packing.Model.ILabel label) {
+        _currentLabel = label;
+        Result += GetBoxesProduced();
+        _previousLabel = label;
+    }
 
-    Packing.Model.ILabel PopPreviousLabel() =>
-        _packer.AreThereNotTracingLabels
-            ? _packer.Lot.BeginLabel 
-            : _packer.TracingLabels[_labelIndex - 1];
+
+    void Initialize(Packer packer) {
+        _packer = packer;
+        _labelIndex = 0;
+        _labelPackIndex = 0;
+        _previousLabel = _packer.Lot.BeginLabel;
+        Result = 0;
+    }
+
+    void ContinuousSum () {
+        if(HasNotTheTourConcluded) {
+            Add(NextLabel);
+            ContinuousSum();
+        }
+    }
+    
+    void AddCurrentLabel(){
+        if (_packer.CanCurrentLabelBeAdded) {
+            _currentLabel = _packer.CurrentLabel;
+            Result += GetBoxesProduced();
+            _previousLabel = LastTracingLabelOrDefault;
+        }
+    }
+
+    public LotProductionCompiler Compute(Packer packer) {
+        Initialize(packer);
+        ContinuousSum();
+        AddCurrentLabel();
+        return this;
+    }
 
 }
