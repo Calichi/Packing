@@ -1,12 +1,20 @@
 ﻿using Packing.Core;
+using Packing.Model;
 
 namespace Packing.Tracing;
 
 public static class PackerHelper
 {
-    public static ILabelPack ToLabelPack(this IPallet pallet, ILoteParameters loteParams) =>
-        new LabelPack(pallet.Number, loteParams.Label.MinorNumber, pallet.ToLabel(loteParams).Number);
+    public static Model.ILabelPack GetPendingLabels
+        (this Model.IPallet pallet,
+              Model.ILotParameters loteParams) =>
+            new Model.LabelPack(pallet.Number,
+                                loteParams.Label.MinorNumber,
+                                pallet.ToLabel(loteParams).Number - 1);
 
-    public static ILabelPack NewPack(this Model.ILabelParameters labelParams, int number) =>
-        new LabelPack(number, labelParams.MinorNumber, labelParams.MajorNumber);
+    public static Model.ILabelPack NewPack
+        (this ILabelParameters labelParams, int number) =>
+            new Model.LabelPack(number,
+                                labelParams.MinorNumber,
+                                labelParams.MajorNumber);
 }
